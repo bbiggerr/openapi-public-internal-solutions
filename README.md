@@ -12,13 +12,15 @@ This example demonstrates a solution to the following scenario:
 
 - An update strategy is required to handle updates to both public and internal definitions.
 
+To test out the solutions in this repository, simply clone it to your machine and follow the instructions for the desired solution.
+
 ## yq Solution
 
 [yq](https://mikefarah.gitbook.io/yq/) is a powerful yaml manipulation tool, similar in function to `jq`.
 
 This solution utilizes `yq` to simply add internal elements contained within an internal yaml file to a public definition.
 
-Details and test files are located in the [yq](/yq) directory.
+Details and test files are located in the [yq directory](/yq) of this repo.
 
 ## OpenAPI CLI Solution
 
@@ -26,4 +28,4 @@ The [OpenAPI CLI](https://redoc.ly/docs/cli/installation/) is a robust tool that
 
 This solution explores Redocly's suggestion of utilizing [multi-file OpenAPI definitions](https://redoc.ly/docs/resources/multi-file-definitions/).
 
-Details and test files are located in the [openapi-cli](/openapi-cli) directory.
+Details and test files are located in the [openapi-cli directory](/openapi-cli) of this repo.

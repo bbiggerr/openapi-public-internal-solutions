@@ -9,7 +9,7 @@
 - An internal definition is modified to refer to components in the public definition wherever appropriate.
   - In this example, the internal definition is represented by `internal-openapi.yaml`.
   - Note that the `ErrorResponse` component within the internal definition refers to the anticipated relative location of the public definition after splitting.
-  - All fully-internal elements are tagged with the `x-internal: true` extension to confirm the correct element is used in the final definition; this extension is not a requirement for this solution.
+  - All fully-internal elements are also tagged with the `x-internal: true` extension to confirm the correct element is used in the final definition; this extension is not a requirement for this solution.
 
 - A joint definition is written that points to the relative public or internal multi-file definition paths.
   - In this example, the joint definition is represented by `joint-openapi.yaml`.
@@ -35,8 +35,6 @@ or
 ## Run the Test
 
 ### Generate a Joint Definition
-
-1. Clone this repository to your machine and `cd` into the cloned directory.
 
 1. Split the **public definition** to the `public` directory:
 
