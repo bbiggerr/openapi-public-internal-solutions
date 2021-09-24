@@ -1,0 +1,63 @@
+openapi: 3.0.1
+info:
+  version: 1.0.0
+  title: API (public)
+  description: |
+    Public API text
+tags:
+  - name: Public Tag
+    description: Public group
+paths:
+  /public:
+    get:
+      tags:
+        - Public Tag
+      description: |
+        Public GET /public
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicSchema'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+  /joint:
+    get:
+      tags:
+        - Public Tag
+      description: |
+        Public GET /joint text
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JointSchema'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  responses:
+    ErrorResponse:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
+            description: Default error response
+  schemas:
+    PublicSchema:
+      type: string
+      description: |
+        Public schema
+    JointSchema:
+      type: object
+      description: |
+        Public version text about using JointProperty
+      properties:
+        JointProperty:
+          type: string
+          enum:
+            - Public

@@ -1,0 +1,17 @@
+openapi: 3.0.1
+info:
+  version: 1.0.0
+  title: API (full internal definition)
+  description: Full Internal API definition including non-internal public endpoints
+tags:
+  - name: Internal Tag
+    description: Internal group
+  - name: Public Tag
+    description: Public group
+paths:
+  /public:
+    $ref: public/paths/public.yaml
+  /internal:
+    $ref: internal/paths/internal.yaml
+  /joint:
+    $ref: internal/paths/joint.yaml

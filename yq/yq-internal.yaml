@@ -1,0 +1,44 @@
+openapi: 3.0.1
+info:
+  x-internal-version: 1.0.0
+  title: API (internal)
+  description: |
+    Internal API text
+tags:
+  - name: Internal Tag
+    description: Internal group
+paths:
+  /internal:
+    x-internal: true
+    get:
+      tags:
+        - Internal Tag
+      description: Internal GET /internal
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalSchema'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+  /joint:
+    get:
+      x-internal: true
+      description: |
+        Internal GET /joint text
+components:
+  schemas:
+    InternalSchema:
+      x-internal: true
+      type: object
+      description: Internal schema
+    JointSchema:
+      x-internal: true
+      description: |
+        Internal version text about using JointProperty
+      properties:
+        JointProperty:
+          enum:
+            - Internal
