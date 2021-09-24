@@ -34,11 +34,6 @@ done
 
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-echo "PUBLIC FILE   = ${PUBLIC}"
-echo "INTERNAL FILE = ${INTERNAL}"
-echo "OUTPUT FILE   = ${OUTPUT}"
-echo "OUTPUT TITLE  = ${TITLE}"
-
 # Copy public file
 COPY=$PUBLIC-copy
 cat ${PUBLIC} > ${COPY}
@@ -61,3 +56,6 @@ yq ea 'select(fi == 0) *+ select(fi == 1)' ${INTERNAL} ${COPY} > ${OUTPUT}
 
 # Clean up
 rm ${COPY}
+
+echo
+echo Files merged to ${OUTPUT}

@@ -1,0 +1,100 @@
+openapi: 3.0.1
+info:
+  x-internal-version: 1.0.0
+  title: API Definition (includes internal)
+  description: |
+    **INTERNAL**
+    Internal API text
+
+    **PUBLIC**
+    Public API text
+  version: 1.0.0
+tags:
+  - name: Internal Tag
+    description: Internal group
+  - name: Public Tag
+    description: Public group
+paths:
+  /internal:
+    x-internal: true
+    get:
+      tags:
+        - Internal Tag
+      description: Internal GET /internal
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalSchema'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+  /joint:
+    get:
+      x-internal: true
+      description: |
+        **INTERNAL**
+        Internal GET /joint text
+
+        **PUBLIC**
+        Public GET /joint text
+      tags:
+        - Public Tag
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JointSchema'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+  /public:
+    get:
+      tags:
+        - Public Tag
+      description: |
+        Public GET /public
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicSchema'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  schemas:
+    InternalSchema:
+      x-internal: true
+      type: object
+      description: Internal schema
+    JointSchema:
+      x-internal: true
+      description: |
+        **INTERNAL**
+        Internal version text about using JointProperty
+
+        **PUBLIC**
+        Public version text about using JointProperty
+      properties:
+        JointProperty:
+          enum:
+            - Internal
+            - Public
+          type: string
+      type: object
+    PublicSchema:
+      type: string
+      description: |
+        Public schema
+  responses:
+    ErrorResponse:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
+            description: Default error response
